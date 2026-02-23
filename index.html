@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Weather Dashboard</title>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container py-4">
+    <div class="top-box">
+      <h1 class="mb-2">Historical Weather Dashboard</h1>
+      <p class="text-muted mb-0">Location: Tampere, Finland</p>
+    </div>
+
+    <nav class="nav nav-pills custom-nav mb-4">
+      <button class="nav-link active" data-view="view1">View 1</button>
+      <button class="nav-link" data-view="view2">View 2</button>
+      <button class="nav-link" data-view="view3">View 3</button>
+    </nav>
+
+    <section id="view1" class="view-section active">
+      <div class="card p-3 mb-4">
+        <div class="row g-3">
+
+          <div class="col-md-4">
+            <label class="form-label">Measurement</label>
+            <select id="view1Measurement" class="form-select">
+              <option value="temperature_2m">Temperature</option>
+              <option value="rain">Rain</option>
+              <option value="wind_speed_10m">Wind Speed</option>
+              <option value="relative_humidity_2m">Humidity</option>
+            </select>
+          </div>
+          <div class="col-md-4">
+            <label class="form-label">Start date</label>
+            <input id="view1Start" type="date" class="form-control">
+          </div>
+
+          <div class="col-md-4">
+            <label class="form-label">End date</label>
+            <input id="view1End" type="date" class="form-control">
+          </div>
+        </div>
+        <div class="mt-3">
+          <button id="view1Load" class="btn btn-dark">Load Data</button>
+        </div>
+      </div>
+
+      <div class="card p-3 mb-4">
+        <h3 class="mb-3">Table</h3>
+        <div class="table-responsive">
+          <table class="table table-striped align-middle">
+            <thead>
+              <tr>
+                <th>Time</th>
+                <th>Value</th>
+              </tr>
+            </thead>
+            <tbody id="view1Table"></tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="card p-3">
+        <h3 class="mb-3">Chart</h3>
+        <canvas id="view1Chart"></canvas>
+      </div>
+    </section>
+
+    <section id="view2" class="view-section">
+      <div class="card p-3 mb-4">
+        <div class="row g-3 align-items-end">
+          <div class="col-md-4">
+            <h2 class="mb-0">Rain Dashboard</h2>
+          </div>
+          <div class="col-md-4">
+            <label class="form-label">Timespan</label>
+            <select id="view2Timespan"  class="form-select">
+              <option value="20">Now</option>
+              <option value="24">24 hours</option>
+              <option value="48">48 hours</option>
+              <option value="72">72 hours</option>
+              <option value="168">1 week</option>
+              <option value="720">1 month</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <div class="card p-3 mb-4">
+        <h3 class="mb-3">Table</h3>
+        <div class="table-responsive">
+          <table class="table table-striped align-middle">
+            <thead>
+              <tr>
+                <th>Time</th>
+                <th>Rain</th>
+              </tr>
+            </thead>
+            <tbody id="view2Table"></tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="card p-3 mb-4">
+        <h3 class="mb-3">Chart</h3>
+        <canvas id="view2Chart"></canvas>
+      </div>
+
+      <div class="stats-grid" id="view2Stats"></div>
+    </section>
+
+    <section id="view3" class="view-section">
+      <div class="card p-3 mb-4">
+        <div class="row g-3 align-items-end">
+          <div class="col-md-4">
+            <h2 class="mb-0">Wind Dashboard</h2>
+          </div>
+          <div class="col-md-4">
+            <label class="form-label">Timespan</label>
+            <select id="view3Timespan"  class="form-select">
+              <option value="20">Now</option>
+              <option value="24">24 hours</option>
+              <option value="48">48 hours</option>
+              <option value="72">72 hours</option>
+              <option value="168">1 week</option>
+              <option value="720">1 month</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <div class="card p-3 mb-4">
+        <h3 class="mb-3">Table</h3>
+        <div class="table-responsive">
+          <table class="table table-striped align-middle">
+            <thead>
+              <tr>
+                <th>Time</th>
+                <th>Wind speed</th>
+              </tr>
+            </thead>
+            <tbody id="view3Table"></tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="card p-3 mb-4">
+        <h3 class="mb-3">Chart</h3>
+        <canvas id="view3Chart"></canvas>
+      </div>
+
+      <div class="stats-grid" id="view3Stats"></div>
+    </section>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="./statistics.js"></script>
+  <script src="./script.js"></script>
+</body>
+</html>

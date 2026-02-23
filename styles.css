@@ -1,0 +1,87 @@
+body {
+  background: #f2eadf;
+  font-family: Arial,  Helvetica, sans-serif;
+}
+
+.top-box {
+  background: white;
+  border-radius: 16px ;
+  padding: 24px;
+  margin-bottom: 24px;
+}
+
+.custom-nav {
+  gap: 10px ;
+}
+
+.custom-nav .nav-link {
+  background: white;
+  color: #111;
+  border-radius: 999px;
+  padding: 10px  18px;
+  border: 1px solid #d9d9d9;
+}
+
+.custom-nav .nav-link.active {
+  background: #111;
+  color: white;
+}
+
+.view-section {
+  display: none;
+}
+
+.view-section.active {
+  display: block;
+}
+
+.card {
+  border: none;
+  border-radius: 16px ;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr) ;
+  gap: 16px;
+}
+
+.stat-card {
+  background: white;
+  border-radius: 16px ;
+  padding: 18px;
+  min-width: 220px ;
+}
+
+.stat-card h4 {
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+.stat-card p {
+  font-size: 22px;
+  font-weight:  bold;
+  margin: 0;
+}
+
+canvas {
+  width: 100% !important;
+  max-height: 380px;
+}
+
+@media (max-width: 900px) {
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .custom-nav {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+  }
+
+  .stats-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
